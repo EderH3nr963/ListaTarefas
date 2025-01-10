@@ -1,0 +1,12 @@
+# Habilitar o mecanismo de reescrita
+RewriteEngine On
+
+# Verificar se o arquivo ou diretório existe
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirecionar todas as outras solicitações para o index.php
+RewriteRule ^ index.php [QSA,L]
+
+# Opcional: configurar o diretório raiz
+# RewriteBase /public

@@ -7,8 +7,8 @@ class Conexao {
 
     public function __construct() {
         try {
-            $conn = new PDO('mysql:host=localhost;dbname=meuBancoDeDados', $this->username, $this->password);
-              $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conexao = new PDO('mysql:host=localhost;dbname=meuBancoDeDados', $this->username, $this->password);
+              $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           } catch(PDOException $e) {
               echo 'ERROR: ' . $e->getMessage();
           }

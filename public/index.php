@@ -20,11 +20,17 @@
 
     // Exemplo básico de roteamento
     $requestUri = str_replace('/public', '', $_SERVER['REQUEST_URI']);
+    $cleanRequestUri = parse_url($requestUri,  PHP_URL_PATH);
 
-    switch ($requestUri) {
+    switch ($cleanRequestUri) {
         case '/':
             $controller = new TarefaController();
             $controller->verTodasAsTarefas();
+            break;
+
+        case '/delete':
+            $controller = new TarefaController();
+            $controller->deletarTarefa();
             break;
 
         case '/tarefas':

@@ -27,4 +27,19 @@ class TarefaController {
         require_once RAIZ . "/views/criarTarefa.php";
         return 0;
     }
+
+    public function deletarTarefa() {
+        if (!isset($_GET['id'])) {
+            header('Location: /tarefas', true, 301);
+            exit();
+        }
+
+        $tarefaService = new TarefaService();
+        $response = $tarefaService->deleteTarefa($_GET['id']);
+
+        if ($response['status'] == 'success') {
+            header('Location: /tarefas', true, 301);
+            exit();
+        }
+    }
 }

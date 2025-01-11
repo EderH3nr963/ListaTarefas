@@ -46,8 +46,8 @@ class TarefaService
             ];
         }
 
-        $dataDaTarefaFormatada  = validarEFormatarData($dataDaTarefaNaoFormatada);
-        if(!$dataDaTarefaFormatada) {
+        $dataDaTarefaFormatada = validarEFormatarData($dataDaTarefaNaoFormatada);
+        if (!$dataDaTarefaFormatada) {
             return [
                 'status' => 'error',
                 'campo' => 'data',
@@ -66,6 +66,28 @@ class TarefaService
             return [
                 'status' => 'success',
                 'mensagem' => 'Tarefa criada com sucesso!'
+            ];
+        } catch (PDOException $e) {
+            error_log("Erro ao criar tarefa: " . $e->getMessage());
+            return [
+                'status' => 'error',
+                'mensagem' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function deleteTarefa($id)
+    {
+        try {
+            $sql = "DELETE FROM tarefas WHERE id=:id";
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return [
+                'status' => 'success',
+                'mensagem' => 'Tarefa deletada com sucesso!'
             ];
         } catch (PDOException $e) {
             error_log("Erro ao criar tarefa: " . $e->getMessage());

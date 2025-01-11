@@ -19,6 +19,11 @@ class TarefaModel
         return [$this->id, $this->dataDeCriacao, $this->dataDaTarefa, $this->descricao];
     }
 
+    public function getID()
+    {
+        return $this->id;
+    }
+
     public function getDescricao()
     {
         return $this->descricao;

@@ -16,7 +16,7 @@
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Data Da Tarefa</label>
                 <input type="date" name="dataTarefa" class="form-control <?= $response && $response['campo'] == 'data' ? "is-invalid" : "" ?>" id="exampleFormControlInput1">
-                <?php if ($response && $response['campo'] == 'data'): ?>
+                <?php if (isset($response) && $response['campo'] == 'data'): ?>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         <?= $response['mensagem'] ?>
                     </div>
@@ -25,7 +25,7 @@
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label ">Descrição</label>
                 <textarea class="form-control <?= $response && $response['campo'] == 'descricao' ? "is-invalid" : "" ?>" name="descricao" id="exampleFormControlTextarea1" rows="10"></textarea>
-                <?php if ($response && $response['campo'] == 'descricao'): ?>
+                <?php if (isset($response) && $response['campo'] == 'descricao'): ?>
                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                         <?= $response['mensagem'] ?>
                     </div>

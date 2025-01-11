@@ -23,7 +23,8 @@
 
     switch ($requestUri) {
         case '/':
-            echo "Página inicial";
+            $controller = new TarefaController();
+            $controller->verTodasAsTarefas();
             break;
 
         case '/tarefas':

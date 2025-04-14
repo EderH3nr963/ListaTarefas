@@ -13,11 +13,8 @@ Este é um projeto de uma aplicação simples de **Lista de Tarefas (To-Do List)
 
 - HTML5
 - CSS3
-- JavaScript (ou outro, especifique se usou React, PHP, etc)
-
-## 💻 Demonstração
-
-(Sugestão: Adicione aqui uma imagem ou gif mostrando a aplicação em funcionamento)
+- PHP
+- Bootstrap
 
 ## 📂 Como usar
 
